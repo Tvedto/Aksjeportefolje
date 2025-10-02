@@ -18,7 +18,7 @@ class Portefolje():
     def __init__(self):
         self.aksjer = []
     
-    def legg_til_aksje(self, navn:str, antall:int, kjopspris:int, naapris:str):
+    def legg_til_aksje(self, navn:str, antall:int, kjopspris:float, naapris:float):
         aksje = Aksje(navn, antall, kjopspris, naapris)
         self.aksjer.append(aksje)
         print(f"La til {aksje} i porteføljen.")
