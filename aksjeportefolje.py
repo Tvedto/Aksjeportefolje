@@ -24,10 +24,7 @@ class Portefolje():
         print(f"La til {aksje} i porteføljen.")
     
     def kontoverdi(self):
-        verdi_aksjer = []
-        for aksje in self.aksjer:
-            verdi_aksjer.append(aksje.verdinaa())
-        return sum(verdi_aksjer)
+        return sum(aksje.verdinaa() for aksje in self.askjer)
 
     def vis_oversikt(self):
         for aksje in self.aksjer:
