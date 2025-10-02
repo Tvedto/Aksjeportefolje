@@ -1,5 +1,5 @@
 class Aksje():
-    def __init__(self, navn, antall, kjopspris, naapris):
+    def __init__(self, navn:str, antall:int, kjopspris:float, naapris:float):
         self.navn = navn
         self.antall = antall
         self.kjopspris = kjopspris
