@@ -5,13 +5,13 @@ class Aksje():
         self.kjopspris = kjopspris
         self.naapris = naapris
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.navn}: {self.antall} aksjer, {self.naapris}kr (kjøpt for {self.kjopspris}kr)"
 
-    def verdinaa(self):
+    def verdinaa(self) -> float:
         return self.antall * self.naapris
 
-    def verdida(self):
+    def verdida(self) -> float:
         return self.antall * self.kjopspris
 
 class Portefolje():
@@ -23,7 +23,7 @@ class Portefolje():
         self.aksjer.append(aksje)
         print(f"La til {aksje} i porteføljen.")
     
-    def kontoverdi(self):
+    def kontoverdi(self) -> float:
         verdi_aksjer = []
         for aksje in self.aksjer:
             verdi_aksjer.append(aksje.verdinaa())
