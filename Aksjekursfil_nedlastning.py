@@ -1,4 +1,5 @@
 #for å laste ned aksjekurs filer:
+#info fra denne nettsiden: https://pypi.org/project/yfinance/
 #pip install yfinance
 #det gir tilgang til yahoo finance
 #dataen vi får har kolonner som ser slik ut: Date,Open,High,Low,Close,Adj Close,Volume
