@@ -5,13 +5,13 @@ class Aksje():
         self.kjopspris = kjopspris
         self.naapris = naapris
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.navn}: {self.antall} aksjer, {self.naapris}kr (kjøpt for {self.kjopspris}kr)"
 
-    def verdinaa(self):
+    def verdinaa(self) -> float:
         return self.antall * self.naapris
 
-    def verdida(self):
+    def verdida(self) -> float:
         return self.antall * self.kjopspris
 
 class Portefolje():
