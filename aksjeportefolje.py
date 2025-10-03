@@ -18,16 +18,13 @@ class Portefolje():
     def __init__(self):
         self.aksjer = []
     
-    def legg_til_aksje(self, navn:str, antall:int, kjopspris:int, naapris:str):
+    def legg_til_aksje(self, navn:str, antall:int, kjopspris:float, naapris:float):
         aksje = Aksje(navn, antall, kjopspris, naapris)
         self.aksjer.append(aksje)
         print(f"La til {aksje} i porteføljen.")
     
-    def kontoverdi(self) -> float:
-        verdi_aksjer = []
-        for aksje in self.aksjer:
-            verdi_aksjer.append(aksje.verdinaa())
-        return sum(verdi_aksjer)
+    def kontoverdi(self):
+        return sum(aksje.verdinaa() for aksje in self.askjer)
 
     def vis_oversikt(self):
         for aksje in self.aksjer:
