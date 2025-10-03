@@ -7,9 +7,12 @@
 
 import yfinance as yf
 
-#henter data for Apple
-data = yf.download("AAPL", start="2023-01-01", end="2024-01-01")
+data = ["AAPL", "TSLA", "MSFT", "NVDA", "SNAP"] #noen eksempler på aksjer
 
-with open("apple_sin_aksjekurs.txt", "w") as f:
-    for pris in data["Close"]: #dataen fra yahoo finance har masse kolonner (for prisen da den var lav, høy osv. per dag), vi kan velge den kolonnen vi vil ha
-        f.write(str(pris) + "\n")
+for d in data:
+
+    download = yf.download(d, start="2023-01-01", end="2024-01-01")
+
+    with open(f"{d}.txt", "w") as f:
+        for pris in download["Close"].values:  #Close er values gjør at det bare blir tallene som printes
+            f.write(f"{pris}\n")
