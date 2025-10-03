@@ -18,13 +18,7 @@ class Portefolje():
     def __init__(self):
         self.aksjer = []
     
-    def legg_til_aksje(self, navn:str, antall:int, kjopspris:int, naapris:str):
-        # Check if the value is negative, either for actual stock count, or stock price
-        if antall <= 0:
-            raise ValueError("Number of stocks has to be positive!")
-        if naapris <= 0 or kjopspris <= 0:
-            raise ValueError("Stock value has to be positive!")
-
+    def legg_til_aksje(self, navn:str, antall:int, kjopspris:float, naapris:float):
         aksje = Aksje(navn, antall, kjopspris, naapris)
         self.aksjer.append(aksje)
         print(f"La til {aksje} i porteføljen.")
