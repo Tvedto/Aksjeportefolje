@@ -18,22 +18,33 @@ class Portefolje():
     def __init__(self):
         self.aksjer = []
     
-    def legg_til_aksje(self, navn:str, antall:int, kjopspris:float, naapris:float):
+    def legg_til_aksje(self, filnavn, antall:int):
+        priser = les_aksjekurs(filnavn)
+        kjopspris = priser[0]
+        naapris = priser[-1]
+        navn = filnavn.replace(".txt","")
         aksje = Aksje(navn, antall, kjopspris, naapris)
         self.aksjer.append(aksje)
         print(f"La til {aksje} i porteføljen.")
     
     def kontoverdi(self):
-        return sum(aksje.verdinaa() for aksje in self.askjer)
+        return sum(aksje.verdinaa() for aksje in self.aksjer)
 
     def vis_oversikt(self):
         for aksje in self.aksjer:
             print(aksje)
         print(f"Totalverdi i porteføljen: {self.kontoverdi()}kr")
     
+def les_aksjekurs(filnavn):
+    aksjekurs = []
+    with open(filnavn, "r") as fil:
+        for tall in fil:
+            aksjekurs.append(round(float(tall.strip("[]\n")), 3))
+    return aksjekurs
+
+
 
 p = Portefolje()
-p.legg_til_aksje("Apple", 10, 150, 175)
-p.legg_til_aksje("Tesla", 5, 200, 180)
+p.legg_til_aksje("AAPL.txt", 100)
 p.vis_oversikt()
 
