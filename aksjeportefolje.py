@@ -1,3 +1,4 @@
+
 class Aksje():
     def __init__(self, navn:str, antall:int, kjopspris:float, naapris:float):
         self.navn = navn
@@ -17,7 +18,7 @@ class Aksje():
 class Portefolje():
     def __init__(self):
         self.aksjer = []
-    
+
     def legg_til_aksje(self, filnavn, antall:int):
         priser = les_aksjekurs(filnavn)
         kjopspris = priser[0]
@@ -29,6 +30,9 @@ class Portefolje():
     
     def kontoverdi(self):
         return sum(aksje.verdinaa() for aksje in self.aksjer)
+
+    def total_gevinst(self):
+        return sum(aksje.verdinaa() - aksje.verdida() for aksje in self.aksjer)
 
     def vis_oversikt(self):
         for aksje in self.aksjer:
@@ -46,5 +50,9 @@ def les_aksjekurs(filnavn):
 
 p = Portefolje()
 p.legg_til_aksje("AAPL.txt", 100)
-p.vis_oversikt()
+p.legg_til_aksje("NVDA.txt", 50)
+p.legg_til_aksje("TSLA.txt", 25)
+p.legg_til_aksje("MSFT.txt", 25)
+p.legg_til_aksje("SNAP.txt", 25)
 
+p.vis_oversikt()
